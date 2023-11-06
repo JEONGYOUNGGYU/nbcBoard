@@ -30,11 +30,11 @@ public class BoardController {
     }
 
     @GetMapping("/board/{id}")     // 선택한 게시글 조회
-    public int selectBoard(@PathVariable int id) {
+    public Board selectBoard(@PathVariable int id, @RequestBody BoardRequestDto boardRequestDto) {
         if (boardList.containsKey(id)) {
             // 해당 게시글 가져오기
             Board board = boardList.get(id);
-            return board.getId();
+            return board;
 
         } else {
             throw new IllegalArgumentException("선택한 게시글은 존재하지 않습니다.");
