@@ -30,7 +30,7 @@ public class BoardController {
     }
 
     @GetMapping("/board/{id}")     // 선택한 게시글 조회
-    public Board selectBoard(@PathVariable int id, @RequestBody BoardRequestDto boardRequestDto) {
+    public Board selectBoard(@PathVariable int id) {
         if (boardList.containsKey(id)) {
             // 해당 게시글 가져오기
             Board board = boardList.get(id);
